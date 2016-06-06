@@ -9,6 +9,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +24,8 @@ import com.gajanan.text.wordpro.Wordlet;
 public class TextController {
 	
 	String filename = "/files/Sample_Paragraph.txt";
-	TextOperation textop = new TextOperation();
+	ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+	TextOperation textop = (TextOperation) context.getBean("textop");
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)	
 	public HashMap<String, List<HashMap<String, Integer>>> getGreeting(@RequestBody HashMap<String, List<String>> wdarr) 
