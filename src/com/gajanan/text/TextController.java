@@ -52,7 +52,7 @@ public class TextController {
  	throws IOException {
  		
  		response.setContentType("type/csv");
- 		response.setHeader("Content-disposition", "attachment;filename=Top_Count.cvs");
+ 		response.setHeader("Content-disposition", "attachment;filename=Top_Count.csv");
  		
 		ArrayList<String> rows = new ArrayList<String>();
 		List<Wordlet> wdlist= textop.topCount(filename, num);
